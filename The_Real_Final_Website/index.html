@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Discover Busan - Tourist Attractions</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <h2>Discover Busan</h2>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="#home" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#attractions" class="nav-link">Attractions</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#culture" class="nav-link">Culture</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#contact" class="nav-link">Why Visit</a>
+                </li>
+                <li class="nav-item auth-buttons" id="authButtons">
+                    <button class="auth-btn login-btn" onclick="openLoginModal()">Login</button>
+                    <button class="auth-btn signup-btn" onclick="openSignupModal()">Sign Up</button>
+                </li>
+                <li class="nav-item user-info" id="userInfo" style="display: none;">
+                    <span class="welcome-text" id="welcomeText"></span>
+                    <button class="auth-btn logout-btn" onclick="logout()">Logout</button>
+                </li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-slider-fullscreen">
+            <div class="slider-container">
+                <div class="slide active" data-attraction="haeundae">
+                    <div class="slide-image haeundae-slide"></div>
+                </div>
+                <div class="slide" data-attraction="gamcheon">
+                    <div class="slide-image gamcheon-slide"></div>
+                </div>
+                <div class="slide" data-attraction="jagalchi">
+                    <div class="slide-image jagalchi-slide"></div>
+                </div>
+                <div class="slide" data-attraction="tower">
+                    <div class="slide-image tower-slide"></div>
+                </div>
+                <div class="slide" data-attraction="temple">
+                    <div class="slide-image temple-slide"></div>
+                </div>
+                <div class="slide" data-attraction="gwangalli">
+                    <div class="slide-image gwangalli-slide"></div>
+                </div>
+            </div>
+            
+            <!-- Hero Content Overlay -->
+            <div class="hero-content-overlay">
+                <div class="hero-content">
+                    <h1 class="hero-title">Welcome to Busan</h1>
+                    <p class="hero-subtitle">Discover the Pearl of South Korea</p>
+                    <p class="hero-description">Experience breathtaking beaches, vibrant culture, and unforgettable adventures in Korea's coastal gem</p>
+                    <button class="cta-button" onclick="scrollToSection('attractions')">Explore Attractions</button>
+                </div>
+            </div>
+            
+            <!-- Slider Navigation -->
+            <div class="slider-nav">
+                <button class="prev-btn">❮</button>
+                <button class="next-btn">❯</button>
+            </div>
+            
+            <!-- Slider Dots -->
+            <div class="slider-dots">
+                <span class="dot active" data-slide="0"></span>
+                <span class="dot" data-slide="1"></span>
+                <span class="dot" data-slide="2"></span>
+                <span class="dot" data-slide="3"></span>
+                <span class="dot" data-slide="4"></span>
+                <span class="dot" data-slide="5"></span>
+            </div>
+            
+            <!-- Slide Info Overlay -->
+            <div class="slide-info-overlay">
+                <div class="slide-info active" data-slide="0">
+                    <h3>Haeundae Beach</h3>
+                    <p>Famous golden sand beach</p>
+                </div>
+                <div class="slide-info" data-slide="1">
+                    <h3>Gamcheon Village</h3>
+                    <p>Colorful hillside culture village</p>
+                </div>
+                <div class="slide-info" data-slide="2">
+                    <h3>Jagalchi Market</h3>
+                    <p>Korea's largest seafood market</p>
+                </div>
+                <div class="slide-info" data-slide="3">
+                    <h3>Busan Tower</h3>
+                    <p>Iconic city landmark</p>
+                </div>
+                <div class="slide-info" data-slide="4">
+                    <h3>Haedong Temple</h3>
+                    <p>Seaside Buddhist temple</p>
+                </div>
+                <div class="slide-info" data-slide="5">
+                    <h3>Gwangalli Beach</h3>
+                    <p>Bridge view beach</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Attractions Section -->
+    <section id="attractions" class="attractions">
+        <div class="container">
+            <h2 class="section-title">Top Tourist Attractions</h2>
+            <div class="attractions-grid">
+                <!-- Haeundae Beach -->
+                <div class="attraction-card" data-attraction="haeundae">
+                    <div class="card-image haeundae-beach"></div>
+                    <div class="card-content">
+                        <h3>Haeundae Beach</h3>
+                        <p>Korea's most famous beach with golden sand, crystal clear waters, and vibrant nightlife.</p>
+                        <div class="card-features">
+                            <span class="feature"><i class="fas fa-umbrella-beach"></i> Beach</span>
+                            <span class="feature"><i class="fas fa-swimmer"></i> Swimming</span>
+                            <span class="feature"><i class="fas fa-moon"></i> Nightlife</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Gamcheon Culture Village -->
+                <div class="attraction-card" data-attraction="gamcheon">
+                    <div class="card-image gamcheon-village"></div>
+                    <div class="card-content">
+                        <h3>Gamcheon Culture Village</h3>
+                        <p>A colorful hillside village known as the "Machu Picchu of Busan" with stunning street art.</p>
+                        <div class="card-features">
+                            <span class="feature"><i class="fas fa-palette"></i> Art</span>
+                            <span class="feature"><i class="fas fa-camera"></i> Photography</span>
+                            <span class="feature"><i class="fas fa-home"></i> Culture</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Jagalchi Fish Market -->
+                <div class="attraction-card" data-attraction="jagalchi">
+                    <div class="card-image jagalchi-market"></div>
+                    <div class="card-content">
+                        <h3>Jagalchi Fish Market</h3>
+                        <p>Korea's largest seafood market offering fresh catches and authentic local dining experiences.</p>
+                        <div class="card-features">
+                            <span class="feature"><i class="fas fa-fish"></i> Seafood</span>
+                            <span class="feature"><i class="fas fa-utensils"></i> Dining</span>
+                            <span class="feature"><i class="fas fa-shopping-basket"></i> Market</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Busan Tower -->
+                <div class="attraction-card" data-attraction="tower">
+                    <div class="card-image busan-tower"></div>
+                    <div class="card-content">
+                        <h3>Busan Tower</h3>
+                        <p>Iconic landmark offering panoramic views of the city and harbor from Yongdusan Park.</p>
+                        <div class="card-features">
+                            <span class="feature"><i class="fas fa-eye"></i> Views</span>
+                            <span class="feature"><i class="fas fa-building"></i> Landmark</span>
+                            <span class="feature"><i class="fas fa-tree"></i> Park</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Haedong Yonggungsa Temple -->
+                <div class="attraction-card" data-attraction="temple">
+                    <div class="card-image haedong-temple"></div>
+                    <div class="card-content">
+                        <h3>Haedong Yonggungsa Temple</h3>
+                        <p>A stunning seaside Buddhist temple built on coastal cliffs with breathtaking ocean views.</p>
+                        <div class="card-features">
+                            <span class="feature"><i class="fas fa-pray"></i> Temple</span>
+                            <span class="feature"><i class="fas fa-water"></i> Seaside</span>
+                            <span class="feature"><i class="fas fa-peace"></i> Spiritual</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Gwangalli Beach -->
+                <div class="attraction-card" data-attraction="gwangalli">
+                    <div class="card-image gwangalli-beach"></div>
+                    <div class="card-content">
+                        <h3>Gwangalli Beach</h3>
+                        <p>Famous for its stunning night views of Gwangan Bridge and vibrant beachfront cafes.</p>
+                        <div class="card-features">
+                            <span class="feature"><i class="fas fa-bridge"></i> Bridge View</span>
+                            <span class="feature"><i class="fas fa-coffee"></i> Cafes</span>
+                            <span class="feature"><i class="fas fa-star"></i> Night View</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Culture Section -->
+    <section id="culture" class="culture">
+        <div class="container">
+            <h2 class="section-title">Busan Culture & Lifestyle</h2>
+            <div class="culture-content">
+                <div class="culture-item">
+                    <div class="culture-icon">
+                        <i class="fas fa-film"></i>
+                    </div>
+                    <h3>Busan International Film Festival</h3>
+                    <p>One of Asia's most prestigious film festivals, showcasing the best of international cinema every October.</p>
+                </div>
+                <div class="culture-item">
+                    <div class="culture-icon">
+                        <i class="fas fa-utensils"></i>
+                    </div>
+                    <h3>Local Cuisine</h3>
+                    <p>Experience authentic Korean flavors with fresh seafood, spicy noodles, and traditional street food.</p>
+                </div>
+                <div class="culture-item">
+                    <div class="culture-icon">
+                        <i class="fas fa-ship"></i>
+                    </div>
+                    <h3>Maritime Heritage</h3>
+                    <p>Discover Busan's rich history as Korea's largest port city and gateway to international trade.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">Why Visit Busan?</h2>
+            <div class="why-visit-content">
+                <div class="visit-reasons">
+                    <div class="reason-card">
+                        <div class="reason-icon">
+                            <i class="fas fa-umbrella-beach"></i>
+                        </div>
+                        <h3>Beautiful Beaches</h3>
+                        <p>From the famous Haeundae to the scenic Gwangalli, Busan offers some of Korea's most stunning coastal experiences.</p>
+                    </div>
+                    <div class="reason-card">
+                        <div class="reason-icon">
+                            <i class="fas fa-palette"></i>
+                        </div>
+                        <h3>Rich Culture</h3>
+                        <p>Experience vibrant street art, traditional temples, and the internationally acclaimed Busan Film Festival.</p>
+                    </div>
+                    <div class="reason-card">
+                        <div class="reason-icon">
+                            <i class="fas fa-utensils"></i>
+                        </div>
+                        <h3>Amazing Food</h3>
+                        <p>Indulge in fresh seafood, authentic Korean cuisine, and unique local specialties that you can't find anywhere else.</p>
+                    </div>
+                    <div class="reason-card">
+                        <div class="reason-icon">
+                            <i class="fas fa-mountain"></i>
+                        </div>
+                        <h3>Diverse Landscapes</h3>
+                        <p>From coastal cliffs and sandy beaches to colorful hillside villages and urban skylines - Busan has it all.</p>
+                    </div>
+                </div>
+                <div class="visit-cta">
+                    <h3>Ready to Explore?</h3>
+                    <p>Busan is waiting to welcome you with its warm hospitality, stunning scenery, and unforgettable experiences. Start planning your adventure today!</p>
+                    <div class="cta-buttons">
+                        <button class="cta-button primary" onclick="scrollToSection('attractions')">Explore Attractions</button>
+                        <button class="cta-button secondary" onclick="scrollToSection('culture')">Learn About Culture</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Discover Busan</h3>
+                    <p>Your gateway to exploring the beautiful coastal city of Busan, South Korea.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#attractions">Attractions</a></li>
+                        <li><a href="#culture">Culture</a></li>
+                        <li><a href="#contact">Why Visit</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Follow Us</h4>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/profile.php?id=100009109266878" target="_blank" rel="noopener noreferrer">
+                            <i class="fab fa-facebook"></i>
+                        </a>
+                        <a href="https://www.instagram.com/seungho_03_31/" target="_blank" rel="noopener noreferrer">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://twitter.com/login" target="_blank" rel="noopener noreferrer">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="https://www.youtube.com/@Busan_is_good" target="_blank" rel="noopener noreferrer">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Discover Busan. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modal for attraction details -->
+    <div id="attractionModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div id="modalBody"></div>
+        </div>
+    </div>
+
+    <!-- Login Modal -->
+    <div id="loginModal" class="auth-modal">
+        <div class="auth-modal-content">
+            <span class="auth-close" onclick="closeLoginModal()">&times;</span>
+            <h2>Login</h2>
+            <form id="loginForm" onsubmit="handleLogin(event)">
+                <div class="form-group">
+                    <label for="loginEmail">Email</label>
+                    <input type="email" id="loginEmail" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="loginPassword">Password</label>
+                    <input type="password" id="loginPassword" name="password" required>
+                </div>
+                <button type="submit" class="auth-submit-btn">Login</button>
+                <p class="auth-switch">
+                    Don't have an account? <a href="#" onclick="switchToSignup()">Sign Up</a>
+                </p>
+            </form>
+        </div>
+    </div>
+
+    <!-- Signup Modal -->
+    <div id="signupModal" class="auth-modal">
+        <div class="auth-modal-content">
+            <span class="auth-close" onclick="closeSignupModal()">&times;</span>
+            <h2>Sign Up</h2>
+            <form id="signupForm" onsubmit="handleSignup(event)">
+                <div class="form-group">
+                    <label for="signupName">Name</label>
+                    <input type="text" id="signupName" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="signupEmail">Email</label>
+                    <input type="email" id="signupEmail" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="signupPassword">Password</label>
+                    <input type="password" id="signupPassword" name="password" required minlength="6">
+                </div>
+                <div class="form-group">
+                    <label for="confirmPassword">Confirm Password</label>
+                    <input type="password" id="confirmPassword" name="confirmPassword" required minlength="6">
+                </div>
+                <button type="submit" class="auth-submit-btn">Sign Up</button>
+                <p class="auth-switch">
+                    Already have an account? <a href="#" onclick="switchToLogin()">Login</a>
+                </p>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html> 
